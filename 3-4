@@ -1,0 +1,23 @@
+window.onload=function(){
+
+  google.script.run
+  .withSuccessHandler(showCourses)
+  .getTeacherCourses();
+
+}
+
+
+function showCourses(courses){
+
+  const sel =
+  document.getElementById("courseSelect");
+
+  courses.forEach(course=>{
+
+    sel.innerHTML +=
+      `<option value="${course}">
+        ${course}
+      </option>`;
+  });
+
+}
