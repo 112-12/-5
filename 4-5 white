@@ -1,0 +1,19 @@
+function createQRBlob(student){
+
+  const qrText =
+    encodeURIComponent(
+      buildQRContent(student)
+    );
+
+  const url =
+    "https://chart.googleapis.com/chart" +
+    "?cht=qr&chs=350x350&chl=" +
+    qrText;
+
+  return UrlFetchApp.fetch(url)
+  .getBlob()
+  .setName(
+    student.studentId + "_QR.png"
+  );
+
+}
