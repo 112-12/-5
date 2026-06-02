@@ -1,0 +1,10 @@
+function loadStudents(){
+
+  const course =
+    document.getElementById("courseSelect").value;
+
+  google.script.run
+  .withSuccessHandler(showStudents)
+  .getCourseStudents(course);
+
+}
