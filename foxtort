@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base target="_top">
+
+  <style>
+    body{
+      font-family: "Microsoft JhengHei", sans-serif;
+      margin: 20px;
+      text-align: center;
+    }
+
+    h1{
+      color:#1a73e8;
+      margin-bottom:30px;
+    }
+
+    .menu{
+      display:flex;
+      justify-content:center;
+      gap:20px;
+      margin-bottom:30px;
+    }
+
+    .menu button{
+      padding:10px 20px;
+      font-size:18px;
+      cursor:pointer;
+      border:none;
+      border-radius:8px;
+      background-color:#1a73e8;
+      color:white;
+      transition:0.3s;
+    }
+
+    .menu button:hover{
+      background-color:#1557b0;
+    }
+
+    #content{
+      margin-top:20px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>XXX學校跑班課 QRcode簽到點名系統</h1>
+
+  <div class="menu">
+
+    <button onclick="sendMailPage()">
+      發出點名信
+    </button>
+
+    <button onclick="studentCheckinPage()">
+      學生簽到
+    </button>
+
+    <button onclick="attendancePage()">
+      查詢出缺席
+    </button>
+
+  </div>
+
+  <div id="content">
+    請選擇功能
+  </div>
+
+<script>
+
+function sendMailPage(){
+  document.getElementById("content").innerHTML =
+    "<h2>發出點名信</h2>";
+}
+
+function studentCheckinPage(){
+  document.getElementById("content").innerHTML =
+    "<h2>學生簽到</h2>";
+}
+
+function attendancePage(){
+  document.getElementById("content").innerHTML =
+    "<h2>查詢出缺席</h2>";
+}
+
+</script>
+
+</body>
+</html>
