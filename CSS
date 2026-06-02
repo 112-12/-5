@@ -1,0 +1,21 @@
+.studentTable{
+    border-collapse:collapse;
+    width:auto;
+    margin-top:15px;
+}
+
+.studentTable th,
+.studentTable td{
+    border:1px solid #ccc;
+    padding:8px 12px;
+    white-space:nowrap;
+}
+
+.studentTable th{
+    background:#f2f2f2;
+}
+
+.studentCheck{
+    transform:scale(1.5);
+    cursor:pointer;
+}
