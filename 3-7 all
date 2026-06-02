@@ -1,0 +1,11 @@
+function countSelected(){
+
+  const count =
+  document.querySelectorAll(
+    ".studentCheck:checked"
+  ).length;
+
+  document.getElementById("selectedCount")
+  .innerHTML = count;
+
+}
