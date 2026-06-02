@@ -1,0 +1,9 @@
+function getStudentEmail(studentId){
+
+  return (
+    "stu" +
+    studentId +
+    "@kssh.khc.edu.tw"
+  );
+
+}
