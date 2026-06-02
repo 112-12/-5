@@ -1,0 +1,49 @@
+function showStudents(data){
+
+ let html = "";
+
+ html += `
+ <div style="margin:10px 0;">
+ 已勾選：
+ <span id="selectedCount">0</span> 筆
+ </div>
+
+ <table class="studentTable">
+
+ <tr>
+   <th>選取</th>
+   <th>班級</th>
+   <th>座號</th>
+   <th>學號</th>
+   <th>姓名</th>
+ </tr>
+ `;
+
+ data.forEach(row=>{
+
+   html += `
+   <tr>
+
+   <td>
+     <input
+       type="checkbox"
+       class="studentCheck"
+       onchange="countSelected()"
+     >
+   </td>
+
+   <td>${row.className}</td>
+   <td>${row.seat}</td>
+   <td>${row.studentId}</td>
+   <td>${row.name}</td>
+
+   </tr>
+   `;
+ });
+
+ html += "</table>";
+
+ document.getElementById("studentTable").innerHTML =
+ html;
+
+}
