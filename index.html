@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <base target="_top">
+
+<style>
+
+body{
+    margin:0;
+    font-family:"Microsoft JhengHei";
+}
+
+.banner{
+
+    background:#1a73e8;
+    color:white;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:12px 20px;
+}
+
+.leftArea{
+    text-align:left;
+}
+
+.systemTitle{
+    font-size:26px;
+    font-weight:bold;
+}
+
+.userInfo{
+    margin-top:5px;
+    font-size:16px;
+}
+
+.rightArea{
+    display:flex;
+    gap:12px;
+}
+
+button{
+
+    border:none;
+    border-radius:6px;
+
+    padding:8px 16px;
+
+    background:white;
+    color:#1a73e8;
+
+    cursor:pointer;
+
+    font-size:16px;
+    font-weight:bold;
+}
+
+button:hover{
+    background:#f0f0f0;
+}
+
+#message{
+    margin:30px;
+    text-align:center;
+    font-size:22px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="banner" class="banner" style="display:none;">
+
+    <div class="leftArea">
+
+        <div class="systemTitle">
+            XXX學校跑班課 QRcode簽到點名系統
+        </div>
+
+        <div id="userInfo" class="userInfo"></div>
+
+    </div>
+
+    <div class="rightArea">
+
+        <button onclick="sendMail()">
+            發出點名信
+        </button>
+
+        <button onclick="studentCheckin()">
+            學生簽到
+        </button>
+
+        <button onclick="attendanceQuery()">
+            查詢出缺席
+        </button>
+
+    </div>
+
+</div>
+
+<div id="message">
+    驗證登入中...
+</div>
+
+<script>
+
+google.script.run
+.withSuccessHandler(showUser)
+.getUserInfo();
+
+
+function showUser(user){
+
+    if(user.success){
+
+        document.getElementById("banner").style.display="flex";
+
+        document.getElementById("userInfo").innerHTML =
+            user.name + "｜" +
+            user.title + "｜" +
+            user.email;
+
+        document.getElementById("message").innerHTML = "";
+
+    }else{
+
+        document.getElementById("message").innerHTML =
+            "❌ 您沒有使用權限<br><br>" +
+            user.email;
+    }
+}
+
+
+function sendMail(){
+    alert("發出點名信");
+}
+
+function studentCheckin(){
+    alert("學生簽到");
+}
+
+function attendanceQuery(){
+    alert("查詢出缺席");
+}
+
+</script>
+
+</body>
+</html>
