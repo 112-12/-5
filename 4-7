@@ -1,0 +1,76 @@
+function sendOneMail(student,isTest){
+
+  const teacher =
+    checkPermission();
+
+  const period =
+    getCurrentPeriod();
+
+  const qrBlob =
+    createQRBlob(student);
+
+  const targetMail =
+    isTest
+      ? teacher.email
+      : getStudentEmail(
+          student.studentId
+        );
+
+  const subject =
+    "跑班課簽到通知";
+
+  const html =
+`
+<div style="font-family:Microsoft JhengHei">
+
+<h2>課程簽到通知</h2>
+
+<table border="1"
+cellpadding="6"
+style="border-collapse:collapse">
+
+<tr>
+<td>姓名</td>
+<td>${student.name}</td>
+</tr>
+
+<tr>
+<td>課程名稱</td>
+<td>${student.courseName}</td>
+</tr>
+
+<tr>
+<td>科目</td>
+<td>${student.subject}</td>
+</tr>
+
+<tr>
+<td>教室</td>
+<td>${student.classroom}</td>
+</tr>
+
+<tr>
+<td>節次</td>
+<td>${period}</td>
+</tr>
+
+</table>
+
+<br>
+
+請使用附件 QR Code 完成簽到。
+
+</div>
+`;
+
+  GmailApp.sendEmail(
+    targetMail,
+    subject,
+    "請開啟HTML郵件",
+    {
+      htmlBody:html,
+      attachments:[qrBlob]
+    }
+  );
+
+}
