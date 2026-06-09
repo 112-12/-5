@@ -1,0 +1,7 @@
+document
+.querySelectorAll(".studentCheck")
+.forEach(cb=>cb.checked=false);
+
+document
+.getElementById("selectedCount")
+.innerHTML="0";
