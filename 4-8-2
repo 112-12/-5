@@ -1,0 +1,20 @@
+function sendSelectedStudents(
+  students,
+  isTest
+){
+
+  checkPermission();
+
+  students.forEach(student=>{
+
+    sendOneMail(
+      student,
+      isTest
+    );
+
+    Utilities.sleep(500);
+
+  });
+
+  return true;
+}
