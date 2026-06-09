@@ -1,0 +1,6 @@
+google.script.run
+.withSuccessHandler(...)
+.sendSelectedStudents(
+    selectedStudents,
+    false
+);
